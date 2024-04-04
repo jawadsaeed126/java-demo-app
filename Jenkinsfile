@@ -21,7 +21,7 @@ pipeline {
                 echo "Building the jar file"
                 sh 'mvn clean package'  // Build the Spring Boot application using Maven
             }
-
+        }
 
         stage('Build and Tag Docker Image') {
             steps {
