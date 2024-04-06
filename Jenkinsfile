@@ -2,9 +2,9 @@ pipeline {
     environment {
         AWS_ACCOUNT_ID = '099199746132'
         AWS_DEFAULT_REGION = 'eu-west-1'
-        ECR_REPOSITORY = 'the-repository-for-demo-java-app'
-        ECS_CLUSTER_NAME = 'the-Demo-Java-App-Cluster'
-        ECS_SERVICE_NAME = 'the-Demo-Java-App-Service'
+        ECR_REPOSITORY = 'java-app-repo-for-testing'
+        ECS_CLUSTER_NAME = 'java-app-cluster-for-testing'
+        ECS_SERVICE_NAME = 'java-app-service-for-testing'
     }
     agent any
 
@@ -28,7 +28,7 @@ pipeline {
                 script {
                      
                     IMAGE_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${ECR_REPOSITORY}:latest"
-
+                                
                     
                     sh "docker build -t ${IMAGE_URI} ."
                 }
