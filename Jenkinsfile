@@ -3,8 +3,6 @@ pipeline {
         AWS_ACCOUNT_ID = '099199746132'
         AWS_DEFAULT_REGION = 'eu-west-1'
         ECR_REPOSITORY = 'java-app-repo-for-testing'
-        ECS_CLUSTER_NAME = 'java-app-cluster-for-testing'
-        ECS_SERVICE_NAME = 'java-app-service-for-testing'
     }
     agent any
 
@@ -45,13 +43,11 @@ pipeline {
                     sh "docker push ${IMAGE_URI}"
 
                     
-                    sh "aws ecs update-service --cluster ${ECS_CLUSTER_NAME} --service ${ECS_SERVICE_NAME} --force-new-deployment --region ${AWS_DEFAULT_REGION}"
                 }
             }
         }
 
-        // Include additional stages as needed
-        // Include additional stages as needed
+       
     }
 
     post {
